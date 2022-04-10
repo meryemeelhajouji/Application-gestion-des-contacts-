@@ -1,4 +1,5 @@
 <?php
+session_start();
 include'Utilisateur.php';
 $error = "";
 if (isset($_POST['Login'])){
@@ -6,11 +7,13 @@ if (isset($_POST['Login'])){
   $user = new Utilisateur();
 
    if($user->login($_POST['username'], $_POST['password'])){
+   
+        header("Location: pageProfile.php");
+    
   
-    header("Location: pageProfile.php");
     
    }else{
-    $error = "incorect username or password !!";
+    $error = "incorect username or password ";
       
    }
   
@@ -55,7 +58,7 @@ if (isset($_POST['Login'])){
 
         </div >
         <button type="submit" name="Login" value="" class="   btn-primary mt-5 " style=" width: 447px;" > Login</button>
-        <div>No account? <a href="#">Sign up</a> here.</div>
+        <div>No account? <a href="signUp.php">Sign up</a> here.</div>
       </form>
       </div>
       </div>
