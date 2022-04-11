@@ -1,12 +1,15 @@
 <?php
-session_start();
+
 include'Utilisateur.php';
 if (isset($_POST['signup'])){
   
   $user = new Utilisateur();
   $username =$_POST['username'];
   $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  if($user->signup($username, $password) == "valide"){
+  $user->setNname($username);
+  $user->setPassword($password);
+  
+  if($user->signup() ){
     header("Location: login.php");
   }
 

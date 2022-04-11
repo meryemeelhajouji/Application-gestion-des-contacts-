@@ -1,23 +1,18 @@
 <?php
-session_start();
+
 include'Utilisateur.php';
 $error = "";
 if (isset($_POST['Login'])){
   
   $user = new Utilisateur();
-
-   if($user->login($_POST['username'], $_POST['password'])){
-   
+    $user->setNname($_POST['username']);
+    $user->setPassword($_POST['password']);
+    if($user->login()){
         header("Location: pageProfile.php");
-    
-  
-    
-   }else{
-    $error = "incorect username or password ";
-      
-   }
-  
-  
+    }else{
+         $error = "incorect username or password ";  
+    }
+
 }
 
 

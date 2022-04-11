@@ -1,46 +1,68 @@
 <?php
+session_start();
 include'dbconnect.php';
 class Utilisateur extends Dbconnect{
+   public $username;
+   public $password;
+   public $date_inscription;	
+            public function signup(){
+                $req ="insert into user (username, password, date_inscription) values (?,?,sysdate()) ";
+                $result= $this->GetData($req);
+                $result->execute([
+                    $this->username,
+                    $this->password,
+                ]);
+     
+            }
 
-  
-    public function signup($username, $password ){
-        $db= $this->connect();
-        $req ="insert into user (username, password) values (:username, :password) ";
-        $exc =$db->prepare($req);  
-        $exc->execute([
-            ":username" => $username,
-            ":password" => $password
-       ] ); 
-       return "valide";
+
+            public function login(){
+                $req ="select * from user where username =?";
+                $result= $this->GetData($req);
+              $result->execute([$this->username]);
+             $res=$result->fetch(PDO::FETCH_ASSOC);
+             if(password_verify($this->password,$res['password'])==true){
+            $_SESSION['name'] = $res['username'];
+            $_SESSION['date'] = $res['date_inscription'];
+            $_SESSION['id'] = $res['id'];
+          //  $_SESSION['last_login']= date('d-m-y h:i:s');  
+      
+
+         return $res;
+        }
     }
+            
 
-    public function logOut(){
+            public function logOut(){
 
-    }
+            }
+
+                public function getName()
+                {
+                    return $this->nom;
+                }
+                public function getPassword()
+                {
+                    return $this->password;
+                }
 
 
-    public function login($username, $password ){
-        $db= $this->connect();
-         $req ="select * from user where username =:username ";
-         $exc =$db->prepare($req);
-         
-           $exc->execute([
-               ":username" => $username
-          ] );
-         $res=$exc->fetch(PDO::FETCH_ASSOC);
-         if(password_verify($password,$res['password'])==true){
-            $_SESSION['username'] = $res['username'];
-                 return $res;
-         }
-        
-    
+                public function setNname($username)
+                {
+                    $this->username=$username;
+                }
+                
+                public function setPassword($password)
+                {
+                    $this->password=$password;
+                }
+               
 
- }
-    
 }
-
-
-
+// $test=new Utilisateur();
+// $test->setPassword(123456789);
+// $test->setNname('maryam');
+// $test->login();
 
 
 ?>

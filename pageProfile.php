@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['name'])){
+  header("location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +17,15 @@
 <body>
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <a class="navbar-brand">Contacts list</a>
-        <form class="form-inline">
+       
+            <a class=" my-2 my-sm-0 nav-link text-light" href="listContacts.php">List Contacts</a>
             <a class=" my-2 my-sm-0 nav-link text-light" href="#">Login</a>
     
-        </form>
+       
       </nav>
       <di class="d-flex justify-content-center align-items-center">
            <div  class=" m-5  w-100">
-            <h1 class="my-5"> Welcome, alex!</h1>
+            <h1 class="my-5"> Welcome, <?php echo $_SESSION['name'] ?>!</h1>
             <h3 class=" my-5"> Your  profile:</h3>
     
             <table class="table">
@@ -35,11 +43,11 @@
                   </tr>
                   <tr>
                     <td class="fs-5 fw-bold ">Username;</td>
-                    <td> alex</td>
+                    <td> <?php echo $_SESSION['name'] ?></td>
                   </tr>
                   <tr>
                     <td class="fs-5 fw-bold">Signup date:</td>
-                    <td>Sun, 07apr 2019 16:11:25 +0000</td>
+                    <td> <?php echo $_SESSION['date'] ?></td>
                   </tr>
                   <tr>
                     <td class="fs-5 fw-bold">Last login:</td>
