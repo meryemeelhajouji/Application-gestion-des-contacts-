@@ -27,15 +27,10 @@ if (isset($_POST['signup'])){
     <title>Sign up</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand">Contacts list</a>
-        <form class="form-inline">
-          <a class=" my-2 my-sm-0 nav-link text-light" href="#">Login</a>
-        </form>
-    </nav>
+<?php include 'navBar.php'?>
 
     <div  class="d-flex justify-content-center align-items-center h-100">
-      <div class=" rounded-3 ">
+      <div class=" rounded-3 card shadow p-3 mb-5 bg-body rounded p-5 m-5">
             <div class="text-center m-3">
                <h2 > Sign up</h2>
             </div>

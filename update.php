@@ -1,23 +1,17 @@
 <?php 
 include('contact.php');
-if (isset($_POST['save'])){
-  
-  $con = new contact();
-  $con->SetName($_POST['nom']);
-  $con->SetTelephone($_POST['phone']);
-  $con->SetEmai($_POST['email']);
-  $con->SetAdress($_POST['adres']);
-  $con->SetId($_SESSION['id']);
+$con = new contact();
+$con->SetIdcontact($_GET['idUpdate']);
 
-   if($con->Add()==true){
-    header("Location: listContacts.php");
-    
-   }else{
-    $error = "error";
-      
-   }
-  
-  
+
+$rows=$con->SelectById();
+if(isset($_POST['update'])){
+    $con->SetName($_POST['nom']);
+    $con->SetTelephone($_POST['phone']);
+    $con->SetEmai($_POST['email']);
+    $con->SetAdress($_POST['adres']);
+    if($con->update()==true)  header("Location: listContacts.php");
+
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +24,6 @@ if (isset($_POST['save'])){
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>        
     </head>
     <body style="background-color:#00000010;">
-  
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand fs-3" href="index.php">Contacts list</a>
@@ -43,8 +36,8 @@ if (isset($_POST['save'])){
       </ul>
       <span class="navbar-text">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active fs-5" aria-current="page" href="pageProfile.php"><?php echo $_SESSION['name'] ?></a>
+        <li class="nav-item fs-5">
+          <a class="nav-link active" aria-current="page" href="pageProfile.php"><?php echo $_SESSION['name'] ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="listContacts.php">Contacts</a>
@@ -57,51 +50,52 @@ if (isset($_POST['save'])){
     </div>
   </div>
 </nav>
-   <div class="d-flex justify-content-center align-items-center " >
-              <div class="rounded-3 w-50 card shadow p-3 bg-body rounded p-3 m-3 " >
-                 <div class="text-center "><h1>Contacts</h1></div>
-                    <span class="mx-2">No contacts.</span>
-                    <h3 class="my-2">Add contact</h3>              
-                
+        <main>
+            <div class="d-flex justify-content-center align-items-center w-100" >
+              <div class="rounded-3 w-50 card shadow p-3 mb-5 bg-body rounded p-5 m-5 " >
+                 <div class="text-center mb-3"><h1>Contacts</h1></div>
+                <div class="list">
+                   
+                    <h3>Update contact</h3>              
+                  </div>
 
                 <form action="" method="POST" onsubmit="return validation()">  
                   <div class="mb-3 ">
                   <label for="exampleFormControlInput1" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" required>
+                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" value="<?php echo $rows['nom']; ?>" />
                   <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
                   <span id="nomid" style="color:red; font-weight: bold;"></span>
                 </div>
 
-                    <div class="mb-3" >
+                    <div class="mb-3 ">
                       <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone">
+                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="<?php echo $rows['tele']; ?>" >
                       <p id="img2" style="margin-bottom: -1rem;"></p>
                       <span id="phoneid"style="color:red; font-weight: bold;"></span>
                     </div>
                
-                    <div class="mb-3" >
+                    <div class="mb-3"  >
                       <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email"  value="<?php echo $rows['email']; ?>" >
                       <p id="img3" style="margin-bottom: -1rem;"></p>
                       <span id="mailid" style="color:red; font-weight: bold;"></span>
                     </div>
                     
-                  <div class="mb-3" >
+                  <div class="mb-3"  >
                     <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                     <span id="addressid"  class="text-danger"></span>
-                    <textarea class="form-control" id="adress" name="adres" rows="3"></textarea>
+                    <input type="text" class="form-control" id="adress" name="adres" rows="3"  value="<?php echo $rows['adress']; ?>" >
                     <p id="img4" style="margin-bottom: -1rem;"></p>
                       <span id="addid" style="color:red; font-weight: bold;"></span>
                   </div>
                  
-                  <div class="col-auto mt-5">
-                   <button type="submit" name="save" class="btn btn-primary mb-3">Save</button>
+                  <div class="col-auto  mt-5">
+                   <button type="submit" name="update" class="btn btn-primary mb-3">Save</button>
                   </div>
 
               </div>
-
                 </form>         
-                            
+                     
             </div>
         </main>
         <script src="js/validation.js"> </script>

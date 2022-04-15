@@ -1,8 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['name'])){
-  header("location: index.php");
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +12,40 @@ if(!isset($_SESSION['name'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <title>Sign up</title>
 </head>
-<body>
-    <nav class="navbar navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand">Contacts list</a>
+<body style="background-color:#00000010;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand fs-3" href="index.php">Contacts list</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
-            <a class=" my-2 my-sm-0 nav-link text-light" href="listContacts.php">List Contacts</a>
-            <a class=" my-2 my-sm-0 nav-link text-light" href="#">Login</a>
-    
-       
-      </nav>
+      </ul>
+      <span class="navbar-text">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active fs-5" aria-current="page" href="pageProfile.php"><?php echo $_SESSION['name'] ?></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="listContacts.php">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="logout.php">Logout</a>
+        </li>
+      </ul>
+      </span>
+    </div>
+  </div>
+</nav>
+
       <di class="d-flex justify-content-center align-items-center">
-           <div  class=" m-5  w-100">
-            <h1 class="my-5"> Welcome, <?php echo $_SESSION['name'] ?>!</h1>
-            <h3 class=" my-5"> Your  profile:</h3>
+           <div  class=" card shadow p-3 mb-5 bg-body rounded p-5 m-5 w-50">
+            <h1 class="fs-2 mt-5"> Welcome, <?php echo $_SESSION['name'] ?>!</h1>
+            <h3 class=" my-2 fs-5"> Your  profile:</h3>
     
-            <table class="table">
+            <table class="table mb-5">
                 <thead>
                   <tr>
                   
@@ -42,7 +59,7 @@ if(!isset($_SESSION['name'])){
                    
                   </tr>
                   <tr>
-                    <td class="fs-5 fw-bold ">Username;</td>
+                    <td class="fs-5 fw-bold ">Username:</td>
                     <td> <?php echo $_SESSION['name'] ?></td>
                   </tr>
                   <tr>

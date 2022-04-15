@@ -6,24 +6,16 @@
      private $password = "";
      private $database = "gestion_contacts";
    
-
-    public function connection()
-    {
-     try
-      {
+    public function connection(){
+     
         $con= new PDO("mysql:host=$this->host; dbname=$this->database" ,$this->username ,$this->password);      
-       return $con;
-      }catch (Exception $ex) { echo $ex->getMessage();}
+        return $con;
     }
 
     public function GetData($req){
-     try
-     {
-        $sql=$this->connection()->prepare($req);
      
-      return $sql; 
-     }catch (Exception $ex) 
-     {echo $ex->getMessage();}
+        $sql=$this->connection()->prepare($req);
+         return $sql; 
     }
    
     

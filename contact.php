@@ -8,13 +8,13 @@ class contact extends Dbconnect{
     public $email;
     public $adress;
     public $id;
+    public $id_contact;
+   
 
     public function Select(){
         $req="select * from contacts where id =?";
         $result= $this->GetData($req);
-      
           $result->execute([$this->id ]);
-       
        return $result->fetchAll();
      
     }
@@ -24,17 +24,43 @@ class contact extends Dbconnect{
         $exc =$this->GetData($req);
         $exc->execute([
              $this->nom,
-            $this->telephone,
+             $this->telephone,
              $this->email,
              $this->adress,
              $this->id
             ] );
-     
+            return  $exc;
     }
     public function delet(){
-        $req ="DELETE FROM contact swhere id =?";
+        $req ="DELETE FROM contacts where id_contact =?";
         $exc =$this->GetData($req);
-        $exc->execute([$this->id]);
+        $exc->execute([$this->id_contact]);
+        return $exc;
+    }
+
+    public function SelectById(){
+        $req="select * from contacts where id_contact =?";
+        $result= $this->GetData($req);
+          $result->execute([$this->id_contact ]);
+       return $result->fetch();
+    }
+
+    public function update(){
+
+       
+
+        $req =" UPDATE contacts SET 
+        nom =?,tele =?,email =?,adress =?  WHERE id_contact = ? ";
+        $exc =$this->GetData($req);
+        $exc->execute([
+             $this->nom,
+             $this->telephone,
+             $this->email,
+             $this->adress,
+             $this->id_contact
+            ] );
+            return  $exc;
+
     }
     public function GetName()
     {
@@ -76,7 +102,14 @@ class contact extends Dbconnect{
     {
        $this->id=$id;
     }
-
+    public function GetIdContact()
+    {
+        return $this->id_contact;
+    }
+     public function SetIdContact($id_contact)
+    {
+       $this->id_contact=$id_contact;
+    }
 
 
 
