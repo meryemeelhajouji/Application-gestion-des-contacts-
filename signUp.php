@@ -1,13 +1,13 @@
 <?php
 
-include'Utilisateur.php';
+include'classe/Utilisateur.php';
 if (isset($_POST['signup'])){
   
   $user = new Utilisateur();
   $username =$_POST['username'];
   $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-  $user->setNname($username);
-  $user->setPassword($password);
+  $user-> username=$username;
+  $user-> password=$password;
   
   if($user->signup() ){
     header("Location: login.php");
@@ -38,20 +38,17 @@ if (isset($_POST['signup'])){
                 <div class="mb-3 ">
                   <label for="exampleInputEmail1" class="form-label">Username</label>
                   <input type="text" class="form-control" id="username" name="username" placeholder="Username" style=" padding: 11px ;width: 447px;" >
-                  <p id="img" style="margin-bottom: -1rem;"></p>
-                  <span id="idemail" style="color:red; font-weight: bold;"></span>
+                  <span id="nameid" style="color:red; font-weight: bold;"></span>
                 </div>
                  <div class="mb-3 ">
                     <label for="exampleInputEmail1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" style=" padding: 11px ;width: 447px;" >
-                    <p id="img2"  style="margin-bottom: -1rem;"></p>
-                    <span id="pass" style="color:red; font-weight: bold; "></span>
+                    <span id="passwordid" style="color:red; font-weight: bold; "></span>
                   </div>
                  <div class="mb-3 ">
                   <label for="exampleInputPassword1" class="form-label">Password verify</label>
                   <input type="password" class="form-control" id="passwordver" placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
-                  <p id="img22"  style="margin-bottom: -1rem;"></p>
-                  <span id="pass2" style="color:red; font-weight: bold; "></span>
+                  <span id="Confirmpasswordid" style="color:red; font-weight: bold; "></span>
                 </div>
        
                  <button type="submit" class="btn btn-primary mt-5"  name ="signup" style=" width: 447px;">Sign up</button>

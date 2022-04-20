@@ -1,13 +1,15 @@
 <?php 
-include('contact.php');
-if (isset($_POST['save'])){
+include('classe/contact.php');
   
-  $con = new contact();
-  $con->SetName($_POST['nom']);
-  $con->SetTelephone($_POST['phone']);
-  $con->SetEmai($_POST['email']);
-  $con->SetAdress($_POST['adres']);
-  $con->SetId($_SESSION['id']);
+$con = new contact();
+
+if (isset($_POST['save'])){
+
+  $con->nom=$_POST['nom'];
+  $con->telephone=$_POST['phone'];
+  $con->email=$_POST['email'];
+  $con->adress=$_POST['adres'];
+  $con->id=$_SESSION['id'];
 
    if($con->Add()==true){
     header("Location: listContacts.php");
@@ -16,9 +18,9 @@ if (isset($_POST['save'])){
     $error = "error";
       
    }
-  
-  
+
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,38 +62,35 @@ if (isset($_POST['save'])){
    <div class="d-flex justify-content-center align-items-center " >
               <div class="rounded-3 w-50 card shadow p-3 bg-body rounded p-3 m-3 " >
                  <div class="text-center "><h1>Contacts</h1></div>
+
                     <span class="mx-2">No contacts.</span>
                     <h3 class="my-2">Add contact</h3>              
                 
 
-                <form action="" method="POST" onsubmit="return validation()">  
+                <form action="" method="POST" onsubmit="return validationContact()">  
                   <div class="mb-3 ">
                   <label for="exampleFormControlInput1" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" required>
-                  <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
-                  <span id="nomid" style="color:red; font-weight: bold;"></span>
+                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" >
+                  <span id="nameid" style="color:red; font-weight: bold;"></span>
                 </div>
 
                     <div class="mb-3" >
                       <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone">
-                      <p id="img2" style="margin-bottom: -1rem;"></p>
+                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" >
                       <span id="phoneid"style="color:red; font-weight: bold;"></span>
                     </div>
                
                     <div class="mb-3" >
                       <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
-                      <p id="img3" style="margin-bottom: -1rem;"></p>
-                      <span id="mailid" style="color:red; font-weight: bold;"></span>
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" >
+                      <span id="emailid" style="color:red; font-weight: bold;"></span>
                     </div>
                     
                   <div class="mb-3" >
                     <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                     <span id="addressid"  class="text-danger"></span>
                     <textarea class="form-control" id="adress" name="adres" rows="3"></textarea>
-                    <p id="img4" style="margin-bottom: -1rem;"></p>
-                      <span id="addid" style="color:red; font-weight: bold;"></span>
+                      <span id="adressId" style="color:red; font-weight: bold;"></span>
                   </div>
                  
                   <div class="col-auto mt-5">
@@ -104,7 +103,7 @@ if (isset($_POST['save'])){
                             
             </div>
         </main>
-        <script src="js/validation.js"> </script>
+        <script src="js/jscontact.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
         

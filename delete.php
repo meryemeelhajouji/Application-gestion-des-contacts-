@@ -1,8 +1,8 @@
 <?php
-include('contact.php');
+include('classe/contact.php');
 if(isset($_GET['idDelete'])){
 $contact1=new contact();
-$contact1->SetIdContact($_GET['idDelete']);
+$contact1->id_contact=$_GET['idDelete'];
 if($contact1->delet()==true){
    
 

@@ -1,15 +1,15 @@
 <?php 
-include('contact.php');
+include('classe/contact.php');
 $con = new contact();
-$con->SetIdcontact($_GET['idUpdate']);
+$con->id_contact=$_GET['idUpdate'];
 
 
 $rows=$con->SelectById();
 if(isset($_POST['update'])){
-    $con->SetName($_POST['nom']);
-    $con->SetTelephone($_POST['phone']);
-    $con->SetEmai($_POST['email']);
-    $con->SetAdress($_POST['adres']);
+    $con->nom=$_POST['nom'];
+    $con->telephone=$_POST['phone'];
+    $con->email=$_POST['email'];
+    $con->adress=$_POST['adres'];
     if($con->update()==true)  header("Location: listContacts.php");
 
 }

@@ -62,6 +62,9 @@ class contact extends Dbconnect{
             return  $exc;
 
     }
+
+ 
+
     public function GetName()
     {
         return $this->nom;

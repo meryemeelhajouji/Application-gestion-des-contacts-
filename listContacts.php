@@ -1,9 +1,9 @@
 <?php 
-include('contact.php');
+include('classe/contact.php');
 
   
   $con = new contact();
-  $con->SetId($_SESSION['id']);
+  $con->id=$_SESSION['id'];
 
   $res=$con->Select();
  

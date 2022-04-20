@@ -1,12 +1,15 @@
 <?php
 
-include'Utilisateur.php';
+include'classe/Utilisateur.php';
+if(isset($_SESSION['name'])){
+    header("location: pageProfile.php");
+  }
 
 $error = "";
 if (isset($_POST['Login'])){
   $user = new Utilisateur();
-    $user->setNname($_POST['username']);
-    $user->setPassword($_POST['password']);
+    $user-> username=$_POST['username'];
+    $user-> password=$_POST['password'];
     if($user->login()){
         header("Location: pageProfile.php");
     }else{
@@ -39,14 +42,12 @@ if (isset($_POST['Login'])){
                                             </div>
                                 <?php   $error = null;  } ?>
                                 <div class="mt-4" >
-                                        <input type="text" name="username" id="username" placeholder="username" style=" padding: 11px ;width: 447px;" >
-                                        <p id="img" style="margin-bottom: -1rem;"></p>
+                                        <input type="text" name="username" id="username" placeholder="username" style=" padding: 11px ;width: 447px;" ><br>
                                         <span id="idemail" style="color:red; font-weight: bold;"></span>
                                 <div>
 
                                 <div  class="mt-5">
-                                        <input type="password" name="password" id="password" placeholder="Password" style="  padding: 11px ;width: 447px;" >
-                                        <p id="img2"  style="margin-bottom: -1rem;"></p>
+                                        <input type="password" name="password" id="password" placeholder="Password" style="  padding: 11px ;width: 447px;" ><br>
                                         <span id="pass" style="color:red; font-weight: bold; "></span>
                                 </div >
 
@@ -57,7 +58,7 @@ if (isset($_POST['Login'])){
                 </form>
  </div>
      
-      <script src="js/login.js"></script>
+      <script src="js/login1.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2X.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>

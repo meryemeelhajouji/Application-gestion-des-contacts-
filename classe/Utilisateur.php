@@ -7,24 +7,6 @@ class Utilisateur extends Dbconnect{
    public $date_inscription;
 
 
-            public function getName()
-            {
-                return $this->nom;
-            }
-            public function getPassword()
-            {
-                return $this->password;
-            }
-            public function setNname($username)
-            {
-                $this->username=$username;
-            }
-            public function setPassword($password)
-            {
-                $this->password=$password;
-            }
-  
-
             public function signup(){
                 $req ="insert into user (username, password, date_inscription) values (?,?,sysdate()) ";
                 $result= $this->GetData($req);
@@ -45,14 +27,29 @@ class Utilisateur extends Dbconnect{
                         $_SESSION['name'] = $res['username'];
                         $_SESSION['date'] = $res['date_inscription'];
                         $_SESSION['id'] = $res['id'];
+                        $_SESSION['lastLogin'] = date('m-d-Y h:i:s a', time());
                         return $res;
                 }
             }
             
 
-            public function logOut(){
-               
+            public function getName()
+            {
+                return $this->nom;
             }
+            public function getPassword()
+            {
+                return $this->password;
+            }
+            public function setNname($username)
+            {
+                $this->username=$username;
+            }
+            public function setPassword($password)
+            {
+                $this->password=$password;
+            }
+  
 
                
 

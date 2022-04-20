@@ -6,20 +6,18 @@
      private $password = "";
      private $database = "gestion_contacts";
    
-    public function connection(){
-     
+    public function connexion(){
         $con= new PDO("mysql:host=$this->host; dbname=$this->database" ,$this->username ,$this->password);      
         return $con;
     }
 
     public function GetData($req){
-     
-        $sql=$this->connection()->prepare($req);
+        $sql=$this->connexion()->prepare($req);
          return $sql; 
     }
    
     
 }
-$conn=new Dbconnect();
-$conn->connection();
+//$conn=new Dbconnect();
+//$conn->connection();
 ?> 
