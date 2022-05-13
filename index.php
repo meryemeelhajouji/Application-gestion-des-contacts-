@@ -9,18 +9,20 @@
 
 </head>
 <body>
-<?php include 'navBar.php'?>
-<div class="container-fluid">
-     <div class=" d-flex justify-content-center my-5"  >
 
-         <div class="card shadow p-3 mb-5 bg-body rounded p-5 m-5">
-         <h1 class="fs-1 text-center mb-3" >Hello!</h1>
-         <p class="fs-5 mx-5 px-5"><a href="signUp.php">Sign up</a> to start creating your contacts list</p>
-         <p class="fs-5 mx-5 px-5">Already have an account?<a href="login.php">Login here</a> </p>
-   
+     <div class="d-flex "  style="height: 750px;">
+         <div class=" w-50 h-100  d-flex justify-content-center  " style="  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); border-radius:  0% 0% 80% 0%;  ">
+             <div><img src="/img/Hello-rafiki (1).png" class="w-100 h-75 "></div>
          </div>
-        
-     </div></div>
+         <div class="  h-100 w-50 d-flex   justify-content-center flex-column align-items-center  " >
+             <img src="/img/hello (1).png" style="width: 100px;" class="mb-3 " >
+             <h2 class="mb-3">To start creating your contacts list</h2>
+             <a href="signUp.php" class="   mb-3 text-center"> <button  style="border-style: none; height: 50px; width: 400px;  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);"  > Sign up</button></a>
+             <a href="login.php" class="   mb-3 text-center"> <button  style=" border-style: none;  height: 50px; width: 400px;  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);"  > Login here</button></a>        
+        </div>
+     </div>
+  
+     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>

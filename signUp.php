@@ -27,42 +27,49 @@ if (isset($_POST['signup'])){
     <title>Sign up</title>
 </head>
 <body>
-<?php include 'navBar.php'?>
 
-    <div  class="d-flex justify-content-center align-items-center h-100">
-      <div class=" rounded-3 card shadow p-3 mb-5 bg-body rounded p-5 m-5">
-            <div class="text-center m-3">
-               <h2 > Sign up</h2>
-            </div>
-            <form method="post" action="" onsubmit="return validation()"> 
-                <div class="mb-3 ">
-                  <label for="exampleInputEmail1" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" style=" padding: 11px ;width: 447px;" >
-                  <span id="nameid" style="color:red; font-weight: bold;"></span>
-                </div>
-                 <div class="mb-3 ">
-                    <label for="exampleInputEmail1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" style=" padding: 11px ;width: 447px;" >
-                    <span id="passwordid" style="color:red; font-weight: bold; "></span>
-                  </div>
-                 <div class="mb-3 ">
-                  <label for="exampleInputPassword1" class="form-label">Password verify</label>
-                  <input type="password" class="form-control" id="passwordver" placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
-                  <span id="Confirmpasswordid" style="color:red; font-weight: bold; "></span>
-                </div>
-       
-                 <button type="submit" class="btn btn-primary mt-5"  name ="signup" style=" width: 447px;">Sign up</button>
-                 <div class="mt-3 mb-3 text-center">
-                    <span class="text-muted">
-                   Already have an account?
-                    </span>
-                     <a class="text-primary text-decoration-underline" href="login.php"> <span >Login </span></a> 
-                     her
-                  </div>
+
+    
+
+
+<div class="d-flex "  style="height: 750px;">
+         <div class=" w-50 h-100  d-flex justify-content-center  " style="  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); border-radius:  0% 0% 80% 0%;  ">
+                   <div><img src="/img/Hello-rafiki (1).png" class="w-100 h-75 "></div>
+         </div>
+         <div  class=" h-100 w-50 d-flex   justify-content-center flex-column align-items-center  "> 
+                   <img src="/img/hello (1).png" style="width: 100px;" class="mb-3 " >
+                   <div class="m-2"> 
+                  <form method="post" action="" onsubmit="return validation()"> 
+                                 <h1 class="text-center mt-1 fs-2">WELCOME BACK!</h1>
+                                  <p class="text-center mt-1  fs-4">Please login to view your dashboard</p>
+                                <div class="mb-3 ">
+                                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" style=" padding: 11px ;width: 447px;" >
+                                  <span id="nameid" style="color:red; font-weight: bold;"></span>
+                                 </div>
+                                 <div class="mb-3 ">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" style=" padding: 11px ;width: 447px;" >
+                                    <span id="passwordid" style="color:red; font-weight: bold; "></span>
+                                  </div>
+                                  <div class="mb-3 ">
+                                    <input type="password" class="form-control" id="passwordver" placeholder="Password verify" style=" padding: 11px ;width: 447px;" >
+                                    <span id="Confirmpasswordid" style="color:red; font-weight: bold; "></span>
+                                  </div>
+                                        
+                                <button type="submit" class="  border-0  mt-3 "  name ="signup" style="  width: 447px; height: 50px;  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);" >Sign up</button>
+                                <div class="mt-3 mb-3 text-center">
+                                    <span class="text-muted" >
+                                  Already have an account?
+                                    </span>
+                                    <a style="color: #B8A0E9;" class=" text-decoration-underline" href="login.php"> <span >Login </span></a> 
+                                    her
+                                  </div>
             </form>
-         
-      </div>  
-    </div>
+                
+                  </div>
+         </div>
+</div>         
+        
+
 
       <script src="js/login.js"></script>
 </body>

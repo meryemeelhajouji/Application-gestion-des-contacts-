@@ -23,7 +23,7 @@ if(isset($_POST['update'])){
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>        
     </head>
-    <body style="background-color:#00000010;">
+    <body style="height: 750px; background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); ">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand fs-3" href="index.php">Contacts list</a>
@@ -51,8 +51,8 @@ if(isset($_POST['update'])){
   </div>
 </nav>
         <main>
-            <div class="d-flex justify-content-center align-items-center w-100" >
-              <div class="rounded-3 w-50 card shadow p-3 mb-5 bg-body rounded p-5 m-5 " >
+        <div class="d-flex justify-content-center align-items-center ">
+    <div class="rounded-3 w-25 card shadow p-3 bg-body rounded p-3 m-3 ">
                  <div class="text-center mb-3"><h1>Contacts</h1></div>
                 <div class="list">
                    
@@ -62,21 +62,21 @@ if(isset($_POST['update'])){
                 <form action="" method="POST" onsubmit="return validation()">  
                   <div class="mb-3 ">
                   <label for="exampleFormControlInput1" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter name" value="<?php echo $rows['nom']; ?>" />
+                  <input type="text" class="form-control" id="nom" name="nom" required placeholder="Enter name" value="<?php echo $rows['nom']; ?>" />
                   <p id="img" style="margin-bottom: -1rem; width: 10px;"></p>
                   <span id="nomid" style="color:red; font-weight: bold;"></span>
                 </div>
 
                     <div class="mb-3 ">
                       <label for="exampleFormControlInput1" class="form-label">Phone</label>
-                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="<?php echo $rows['tele']; ?>" >
+                      <input type="text" class="form-control" id="phone" name="phone" required placeholder="Enter phone" value="<?php echo $rows['tele']; ?>" >
                       <p id="img2" style="margin-bottom: -1rem;"></p>
                       <span id="phoneid"style="color:red; font-weight: bold;"></span>
                     </div>
                
                     <div class="mb-3"  >
                       <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                      <input type="text" class="form-control" id="email" name="email" placeholder="Enter email"  value="<?php echo $rows['email']; ?>" >
+                      <input type="text" class="form-control" id="email" name="email" required placeholder="Enter email"  value="<?php echo $rows['email']; ?>" >
                       <p id="img3" style="margin-bottom: -1rem;"></p>
                       <span id="mailid" style="color:red; font-weight: bold;"></span>
                     </div>
@@ -84,13 +84,13 @@ if(isset($_POST['update'])){
                   <div class="mb-3"  >
                     <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                     <span id="addressid"  class="text-danger"></span>
-                    <input type="text" class="form-control" id="adress" name="adres" rows="3"  value="<?php echo $rows['adress']; ?>" >
+                    <input type="text" class="form-control" id="adress" required name="adres" rows="3"  value="<?php echo $rows['adress']; ?>" >
                     <p id="img4" style="margin-bottom: -1rem;"></p>
                       <span id="addid" style="color:red; font-weight: bold;"></span>
                   </div>
                  
                   <div class="col-auto  mt-5">
-                   <button type="submit" name="update" class="btn btn-primary mb-3">Save</button>
+                   <button type="submit" name="update" class="btn  mb-3" style="  width: 350px; height: 50px;  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">Save</button>
                   </div>
 
               </div>

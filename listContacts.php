@@ -21,7 +21,7 @@ include('classe/contact.php');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <!-- <link rel="stylesheet" href=".css"> -->
     </head>
-    <body  style="background-color:#00000010;" >
+    <body  style="height: 750px; background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); " >
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -50,10 +50,9 @@ include('classe/contact.php');
   </div>
 </nav>
         <div class="container  mt-5 bg-white  p-5" >
-        <a href="ajouterConact.php"class=" d-flex justify-content-end"  > <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-           Ajouter contact
-           </button><a>
-            <div class="table-responsiven mt-3" >
+           <a href="ajouterConact.php" class=" d-flex justify-content-end text text-decoration-none"> <button  style="border-style: none; height: 50px; width: 200px;  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);"  > Ajouter contact</button></a>
+            
+           <div class="table-responsiven mt-3" >
                 <table class="table align-middle">
                   <thead>
                     <tr>
